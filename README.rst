@@ -7,7 +7,7 @@ TOC
   * Requirements_
   * Installation_
   * Documentation_
-     - HHTL_
+     - SHFR_
   * References_
 
 .. _Requirements:
