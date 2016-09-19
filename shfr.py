@@ -47,6 +47,6 @@ def mapping(w_source, w_target):
     # Learn the mapping between s_w and t_w
     # by minimizing (1 / (2 * n_samples)) * ||y - Xw||^2_2 + alpha * ||w||_1
     print "Mapping s_w and t_w"
-    clf = linear_model.Lasso(alpha=0.1,positive=True,max_iter=2000)
+    clf = linear_model.Lasso(alpha=0.1,positive=True,max_iter=5000)
     clf.fit(w_source, w_target)
     return clf
