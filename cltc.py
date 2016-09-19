@@ -107,7 +107,7 @@ def train():
     s_codelabels = np.array(s_codelabels)
 
     t_train, t_labels, classes = load(fname_t_train, t_voc, dim)
-    print("|s_test| = %d" % t_train.shape[0])
+    print("|t_train| = %d" % t_train.shape[0])
     t_codelabels = []
     for i in range(0, len(t_labels)):
         label = int(t_labels[i])
@@ -161,6 +161,7 @@ def predict():
     codebook = cltc_model.codebook
 
     t_test, labels, classes = load(fname_t_test,t_voc)
+    print("|t_test| = %d" % t_test.shape[0])
     predictions = []
     for i in range(0,len(s_classifiers)):
         t_classifiers[i].coef_=lasso_model.predict(s_classifiers[i].coef_)
