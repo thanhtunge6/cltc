@@ -1,12 +1,12 @@
 import shfr, numpy as np
 from bow import vocabulary,disjoint_voc,load
-s_voc = vocabulary("data/source.processed", mindf=2, maxlines=1000)
-t_voc = vocabulary("data/target.processed", mindf=2, maxlines=1000)
+s_voc = vocabulary("data/source_train.processed", mindf=2, maxlines=1000)
+t_voc = vocabulary("data/target_train.processed", mindf=2, maxlines=1000)
 s_voc, t_voc, dim = disjoint_voc(s_voc, t_voc)
 print("|V_S| = %d" % len(s_voc))
 # Load labeled and unlabeled data
-s_train, s_labels, classes = load("data/source.processed", s_voc)
-t_train, t_labels, classes = load("data/target.processed", t_voc)
+s_train, s_labels, classes = load("data/source_train.processed", s_voc)
+t_train, t_labels, classes = load("data/target_train.processed", t_voc)
 codebook = shfr.generatecodebook(len(classes),5)
 s_codelabels = []
 for i in range(0,len(s_labels)):
