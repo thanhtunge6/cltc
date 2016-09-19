@@ -1,0 +1,3 @@
+import cltc
+
+cltc.train()
