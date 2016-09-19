@@ -53,13 +53,14 @@ Training script for CLSA. See `./cltc_train --help` for further details.
 
 Usage::
 
-    $ python ./cltc_train en de data/source.processed data/target.processed model.bz2
+    $ python ./cltc_train en de data/source_train.processed data/target_train.processed model.bz2
 
-    |V_S| = 4535
+
+    |V_S| = 8816
     |V_T| = 3157
     classes = {0,1,2}
-    Number of tasks = 6
-    |s_train| = 600
+    |s_train| = 1500
+    Number of tasks =  3
     |t_train| = 300
     Train classifiers for source language
     Learn classifier  1
@@ -68,7 +69,7 @@ Usage::
     Learn classifier  4
     Learn classifier  5
     Learn classifier  6
-    Train source took  0.0757110118866
+    Train source took  0.221940994263
     Train classifiers for target language
     Learn classifier  1
     Learn classifier  2
@@ -76,10 +77,11 @@ Usage::
     Learn classifier  4
     Learn classifier  5
     Learn classifier  6
-    Train target took  0.0314400196075
+    Train target took  0.0276529788971
     Mapping s_w and t_w
     Write model
-    Writing model took  1.35773491859  sec
+    Writing model took  2.41986513138  sec
+
 
 
 
@@ -95,9 +97,10 @@ Usage::
 
 
     Load model
-    Loading model took  0.45977306366  sec
-    |t_test| = 900
-    Accuracy:  0.721111111111
+    Loading model took  0.863528966904  sec
+    |t_test| = 5700
+    Accuracy:  0.696666666667
+
 
 
 
