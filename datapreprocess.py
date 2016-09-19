@@ -1,8 +1,8 @@
 __author__ = 'ngot0008'
 
-fname_t_train = ['/home/tung/Desktop/cls-acl10-processed/de/books/train.processed',
-                 '/home/tung/Desktop/cls-acl10-processed/de/dvd/train.processed',
-                 '/home/tung/Desktop/cls-acl10-processed/de/music/train.processed']
+fname_t_train = ['cls-acl10-processed/de/books/train.processed',
+                 'cls-acl10-processed/de/dvd/train.processed',
+                 'cls-acl10-processed/de/music/train.processed']
 lines = [100,2000]
 with open('data/target_test.processed','w') as output:
     for f in range(0,len(fname_t_train)):
