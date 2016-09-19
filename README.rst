@@ -1,5 +1,5 @@
-Cross-Lingual Sentiment Analysis
-================================
+Cross-Lingual Text Classification Tool for Multiple Classes
+===========================================================
 
 TOC
 ---
@@ -28,68 +28,77 @@ Installation
 
 To clone the repository run, 
 
-   git clone git://github.com/thanhtunge6/clsa.git
+   git clone git://github.com/thanhtunge6/cltc.git
 
 .. _Documentation:
 
 Documentation
 -------------
 
-.. _HHTL:
+.. _SHFR:
 
-HHTL
+SHFR
 ~~~~
 
-An implementation of Hybrid  Heterogeneous  Transfer  Learning through Deep Learning.
+An implementation of Sparse Heterogeneous Feature Representation learning.
 See [Joey2014]_ for a detailed description.
 
 The data for cross-language sentiment classification that has been used in the above
 study can be found here [#f1]_.
 
-clsa_train
+cltc_train
 ??????????
 
-Training script for CLSA. See `./clsa_train --help` for further details. 
+Training script for CLSA. See `./cltc_train --help` for further details. 
 
 Usage::
 
-    $ python ./clsa_train en de cls-acl10-processed/en/books/train.processed cls-acl10-processed/de/books/trans/en/books/test.processed cls-acl10-processed/de/books/test.processed model.bz2 -r 0.1 --layer 1 -n 0.8
+    $ python ./cltc_train en de data/source.processed data/target.processed model.bz2
 
-
-    |V_S| = 5271
-    |V_T| = 5936
-    classes = {negative,positive}
-    |s_train| = 1000
-    Stack auto encoder
-    Stacking hidden layers...
-    layer 0
-    Learn mapping
-    layer  1
-    Compute hidden layer source
-    Compute hidden layer target
-    Learn maping
-    Layer  1  took  21.1619780064  sec
-    Train SVM
-    Learning SVM took  8.46254491806 sec
+    |V_S| = 4535
+    |V_T| = 3157
+    classes = {0,1,2}
+    Number of tasks = 6
+    |s_train| = 600
+    |t_train| = 300
+    Train classifiers for source language
+    Learn classifier  1
+    Learn classifier  2
+    Learn classifier  3
+    Learn classifier  4
+    Learn classifier  5
+    Learn classifier  6
+    Train source took  0.0757110118866
+    Train classifiers for target language
+    Learn classifier  1
+    Learn classifier  2
+    Learn classifier  3
+    Learn classifier  4
+    Learn classifier  5
+    Learn classifier  6
+    Train target took  0.0314400196075
+    Mapping s_w and t_w
     Write model
-    Writing model took  138.033488989  sec
+    Writing model took  1.35773491859  sec
 
 
 
-clsa_predict
+
+cltc_predict
 ????????????
 
-Prediction script for CLSA.
+Prediction script for CLTC.
 
 Usage::
 
-    $ python ./clsa_test model.bz2 cls-acl10-processed/de/books/test.processed
+    $ python ./cltc_test model.bz2 data/target_test.processed
+
 
     Load model
-    Loading model took  61.9274499416  sec
-    Transform target data
-    Predict labels
-    Accuracy:  0.75125
+    Loading model took  0.45977306366  sec
+    |t_test| = 900
+    Accuracy:  0.721111111111
+
 
 
 .. _References:
@@ -98,4 +107,4 @@ References
 
 .. [#f1] http://www.uni-weimar.de/en/media/chairs/webis/corpora/corpus-webis-cls-10/
 
-.. [Joey2014] Zhou, P. T., Pan, S. J., Tsang I. W. and Yan Y. `Hybrid Heterogeneous Transfer Learning through Deep Learning <https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/viewFile/8181/8869>`_. In Proceedings of AAAI 2014.
+.. [Joey2014] Zhou, P. T., Pan, S. J., Tsang I. W. and Tan M. `Heterogeneous Domain Adaptation for Multiple Classes <http://www.jmlr.org/proceedings/papers/v33/zhou14.pdf>`_. In Proceedings of AISTATS 2014.
