@@ -100,6 +100,7 @@ def train():
     print("classes = {%s}" % ",".join(classes))
     print("|s_train| = %d" % s_train.shape[0])
     codebook = shfr.generatecodebook(len(classes), 5)
+    print "Number of task = ", len(codebook)
     s_codelabels = []
     for i in range(0, len(s_labels)):
         label = int(s_labels[i])
